@@ -16,25 +16,25 @@ There is probably a better way to do this (and indeed Google tells me an actual
 Linux emulation layer in OpenBSD!) but I was drunk and bored..
 
 Assemble with:
-
+```
 nasm -f elf64 -o openlsd.o openlsd.asm
 ld -o openlsd openlsd.o
 
 $ file ./openlsd
 ./openlsd: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically
 linked, for OpenBSD, not stripped
- 
+``` 
 On Linux:
-
+```
 $ strace ./openlsd
 execve("./openlsd", ["./openlsd"], [/* 35 vars */]) = 0
 lstat("/proc/self/stat", {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
 write(1, "Linux\n", 6Linux
 )                  = 6
 _exit(42)                               = ?
-
+```
 On OpenBSD:
-
+```
 $ kdump
   5762 ktrace   EMUL  "native"
   5762 ktrace   RET   ktrace 0
@@ -50,5 +50,5 @@ $ kdump
        "
   5762 openlsd  RET   write 8
   5762 openlsd  CALL  exit(0x45)
-
+```
  
