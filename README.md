@@ -23,7 +23,7 @@ ld -o openlsd openlsd.o
 $ file ./openlsd
 ./openlsd: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically
 linked, for OpenBSD, not stripped
-
+ 
 On Linux:
 
 $ strace ./openlsd
