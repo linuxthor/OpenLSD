@@ -7,7 +7,7 @@ _start:
     mov  rdi,arky
     mov  rsi,statz 
     syscall    
-
+ 
     cmp  rax,0
     je   linux
 
